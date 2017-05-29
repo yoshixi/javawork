@@ -1,0 +1,1 @@
+//15D8102011G Masubuchi Yoshiki public class ShopKeeper {	private String name;	public ShopKeeper(String name){		this.name = name;	}	public void checkPrice(CarToy... car){		System.out.println(name+"が価格を確認します。");		for(CarToy el: car){			System.out.println("商品コード:"+el.getCode()+"の価格は"+el.getPrice()+"円です。");		}			}}
