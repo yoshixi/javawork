@@ -4,13 +4,13 @@ import javax.swing.*;
 import java.util.Random;
 
 
-public class Ex01d extends JFrame {
+public class Ex01f extends JFrame {
   private MyPanel sp;
   public static void main(String[] args){
-    Ex01d sm = new Ex01d();
+    Ex01f sm = new Ex01f();
   }
-  public Ex01d(){
-    super("Ex01d");
+  public Ex01f(){
+    super("Ex01f");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setSize(500,500);
     sp = new MyPanel();
@@ -25,20 +25,25 @@ public class Ex01d extends JFrame {
       double scale = 400;
       int dx,dy;
       int N = 100000;
-      double a1[][] = {{0.5,0.288675}, {0.288675, -0.5}};
-      double a2[][] = {{-0.5,-0.288675}, {0.288675, -0.5}};
-      double b1[] = {0,0};
-      double b2[] = {1,0};
+      double a1[][] = {{-0.29,0}, {0, 0.2}};
+      double a2[][] = {{-0.07,-0.02}, {-0.01, 0.29}};
+      double a3[][] = {{0.94,-0.22}, {0.21, 0.96}};
+      double b1[] = {0.94,0.24};
+      double b2[] = {0.94,0.33};
+      double b3[] = {0.115,-0.08};
 
       for(int k = 0; k<N; k ++){
 
         Random rnd = new Random();
-        int flag = rnd.nextInt(2);
-        if (flag == 0){
+        int flag = rnd.nextInt(100);
+        if (flag <= 5){
           n1 = cal(n0,a1,b1);
-        }else{
+        }else if (flag >= 6 && flag <= 7){
           n1 = cal(n0,a2,b2);
+        }else{
+          n1 = cal(n0,a3,b3);
         }
+
         dx = (int)(n1[0]*scale);
         dy = (int)(n1[1]*scale);
         g.drawLine(dx, dy, dx, dy);
